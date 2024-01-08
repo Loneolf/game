@@ -1,0 +1,121 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+body {
+	font: bold 20px "Courier";
+	font-size: 14px;
+	overflow: hidden;
+}
+
+#main {
+	width: 375px;
+	height: 630px;
+	background-color: #b7d4a8;
+	border: 10px solid black;
+	margin: 20px auto;
+	border-radius: 40px;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: space-around;
+
+	#stage {
+		width: 304px;
+		height: 304px;
+		border: 2px solid black;
+		position: relative;
+
+		#snake {
+			& > div {
+				width: 10px;
+				height: 10px;
+				background-color: #000;
+				border: 1px solid #b7d4a8;
+				position: absolute;
+			}
+		}
+
+		#food {
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-between;
+			align-content: space-between;
+			padding: 2px;
+
+			& > div {
+				width: 3px;
+				height: 3px;
+				background-color: black;
+				transform: rotate(45deg);
+			}
+		}
+	}
+
+	#score-panel {
+		width: 300px;
+		display: flex;
+		justify-content: space-between;
+		font-size: 14px;
+	}
+
+	#oprate{
+		width: 304px;
+		height: 200px;
+		display: flex;
+		justify-content: space-between;
+		padding-top: 20px;
+		padding-left: 20px;
+		#dirBox{
+			width: 140px;
+			height: 140px;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-between;
+			align-content: space-between;
+			transform: rotate(45deg);
+			div {
+				touch-action: none;
+				width: 60px;
+				height: 60px;
+				background-color: #444;
+				border-radius: 50%;
+				text-align: center;
+				color: #fff;
+				transform: rotate(-45deg);
+				line-height: 60px;
+				font-size: 20px;
+				font-weight: normal;
+			}
+		}
+		#speedAgin{
+			display: flex;
+			flex-direction: column;
+			div {
+				width: 60px;
+				height: 60px;
+				background-color: #666;
+				border-radius: 50%;
+				text-align: center;
+				color: #fff;
+				line-height: 60px;
+				font-size: 18px;
+				font-weight: normal;
+				margin-right: 10px;
+			}
+			#speed{
+				margin-top: 15px;
+			}
+			
+		}
+	}
+
+}
