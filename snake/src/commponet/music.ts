@@ -17,22 +17,26 @@ class Music {
     }
 
     eatMusic() {
-        this.playMusic.src = './mp3/eat.mp3'
-        this.playMusic.play()
+        this.play('./mp3/eat.mp3')
     }
 
     over() {
         this.bgMusic.pause()
-        this.playMusic.src = './mp3/hint.mp3'
-        this.playMusic.play()
+        this.play('./mp3/hint.mp3')
         setTimeout(() => {
-            this.playMusic.src = './mp3/over.mp3'
-            this.playMusic.play()
+            this.play('./mp3/over.mp3')
         }, 500);
     }
 
     setBgMusicSpeed(speed: number) {
         this.bgMusic.playbackRate = speed
+    }
+
+    play(src: string) {
+        this.playMusic.src = src
+        this.playMusic.oncanplaythrough = () => {
+            this.playMusic.play()
+        }
     }
 
 }

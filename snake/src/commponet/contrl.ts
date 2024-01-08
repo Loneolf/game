@@ -42,7 +42,7 @@ class Contrl implements ArchiveClass{
 
         this.liveOptEL = document.querySelector('#agin')!
 
-        // 复活与加速
+        // 暂停、开始、复活与加速
         this.speedAginEL = document.querySelector('#speedAgin')!
         this.speedAginEL.addEventListener('touchstart', this.touchHandle.bind(this))
         this.speedAginEL.addEventListener('touchend', this.touchHandle.bind(this))
@@ -80,22 +80,17 @@ class Contrl implements ArchiveClass{
             this.snake.X = Math.round(x * 10) / 10 // 小数精度问题
             this.snake.Y = Math.round(y * 10) / 10
         } catch (error) {
-            // console.log('aaaaaa2333', error)
             this.isLive = false
             this.liveOptEL.innerText = '复活'
             this.music.over()
         }
 
-        let time = (300 - this.score.lever * 30) / (this.isFast ? 2 : 1)
-        if (time < 60) {
-            time = 60
-        }
         setTimeout(() => {
             this.run()
             if (this.isLockDir) {
                 this.isLockDir = false
             }
-        }, time);
+        }, this.speedTime());
     }
 
     // 判断蛇是否吃到了食物
@@ -225,6 +220,28 @@ class Contrl implements ArchiveClass{
         }
         this.isLockDir = true
         this.direction = dir
+    }
+
+    speedTime() {
+        let map: {[propety: string]: number} = {
+            "1": 1,
+            "2": 4,
+            "3": 6,
+            "4": 8,
+            "5": 9,
+            "6": 10,
+            "7": 10.5,
+            "8": 11,
+            "9": 11.5,
+            "10": 12,
+            'fast': 12
+        }
+        const reduce = (map[`${this.score.lever}`] || map.fast) * 20
+        let time = (360 - reduce) / (this.isFast ? 2 : 1)
+        if (time < 120) {
+            time = 120
+        }
+        return time
     }
 
     start(changeFood = true) {
