@@ -27,6 +27,7 @@
     "cos-nodejs-sdk-v5": "^2.12.6",
     "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.6.0",
     "node-sass": "^9.0.0",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.1.3",
