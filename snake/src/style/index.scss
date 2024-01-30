@@ -65,6 +65,11 @@ body {
 		display: flex;
 		justify-content: space-between;
 		font-size: 14px;
+		.musicIcon{
+			width: 18px;
+			height: 18px;
+			animation: rotate 8s infinite linear;
+		}
 	}
 
 	#oprate{
@@ -118,4 +123,13 @@ body {
 		}
 	}
 
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }

@@ -150,6 +150,7 @@ class Contrl implements ArchiveClass{
         this.snake.archive()
         this.food.archive()
         this.score.archive()
+        this.music.archive()
         localStorage.setItem(CONTRLSTATE, JSON.stringify({ isArchive: true, dir: this.direction }))
     }
 
@@ -159,6 +160,7 @@ class Contrl implements ArchiveClass{
         this.snake.clearArchive()
         this.food.clearArchive()
         this.score.clearArchive()
+        // this.music.clearArchive()
     }
 
     // 初始化读取本地是否有存档，如果有存档，则进行存档还原和清档
@@ -173,6 +175,7 @@ class Contrl implements ArchiveClass{
                 this.food.archiveRestore()
                 this.score.archiveRestore()
             }
+            this.music.archiveRestore()
         } catch (error) {
             console.log('存档异常')
             // this.start()
