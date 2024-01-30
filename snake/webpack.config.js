@@ -32,8 +32,8 @@ module.exports = () => {
 						to: path.resolve(__dirname, "./dist/mp3"),
 					},
 					{
-						from: path.resolve(__dirname, "./src/assets"),
-						to: path.resolve(__dirname, "./dist/assets"),
+						from: path.resolve(__dirname, "./src/assets/ico"),
+						to: path.resolve(__dirname, "./dist/assets/ico"),
 					}
 				],
 			}),
