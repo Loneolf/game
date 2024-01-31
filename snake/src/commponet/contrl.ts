@@ -4,7 +4,7 @@ import Food from './food'
 import Score from './score'
 import Snake from './snake'
 import Music from './music'
-import { CONTRLSTATE } from './config'
+import { CONTRLSTATE, GETINFO_EVENT, RECEIVE_INFO_EVENT_MUSIC } from './config'
 
 class Contrl implements ArchiveClass{
     snake: Snake
@@ -53,6 +53,21 @@ class Contrl implements ArchiveClass{
         document.addEventListener('keydown', this.keyDownHanle.bind(this))
         document.addEventListener('keyup', this.keyDownHanle.bind(this))
         this.archiveRestore()
+
+        // 监听自定义事件
+        document.addEventListener(GETINFO_EVENT, this.getInfoHandle.bind(this))
+    }
+
+    // 音乐组件开启声音时需要判断是否暂停状态，暂停状态开启声音也不播放背景音，点击继续才有声音，通过自定义事件传递状态
+    getInfoHandle(e: any) {
+        switch (e.detail) {
+            case "isStop":
+                const receveInfoEventMusic = new CustomEvent(RECEIVE_INFO_EVENT_MUSIC, {detail: this.isStop})
+                document.dispatchEvent(receveInfoEventMusic)
+                break;
+            default:
+                break;
+        }
     }
 
     run() {
@@ -151,7 +166,7 @@ class Contrl implements ArchiveClass{
         this.food.archive()
         this.score.archive()
         this.music.archive()
-        localStorage.setItem(CONTRLSTATE, JSON.stringify({ isArchive: true, dir: this.direction }))
+        localStorage.setItem(CONTRLSTATE, JSON.stringify({ isArchive: true, dir: this.direction}))
     }
 
     // 点击继续清除存档
@@ -160,7 +175,6 @@ class Contrl implements ArchiveClass{
         this.snake.clearArchive()
         this.food.clearArchive()
         this.score.clearArchive()
-        // this.music.clearArchive()
     }
 
     // 初始化读取本地是否有存档，如果有存档，则进行存档还原和清档
@@ -171,6 +185,7 @@ class Contrl implements ArchiveClass{
                 this.liveOptEL.innerText = '继续'
                 this.direction = archiveData.dir
                 this.isLive = true
+                this.isStop = true
                 this.snake.archiveRestore()
                 this.food.archiveRestore()
                 this.score.archiveRestore()

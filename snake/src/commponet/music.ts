@@ -1,4 +1,4 @@
-import { MUSICSTATE } from './config'
+import { MUSICSTATE, GETINFO_EVENT, RECEIVE_INFO_EVENT_MUSIC} from './config'
 const stopIcon = require('../assets/stopMusic.png')
 const normalIcon = require('../assets/music.png')
 
@@ -13,6 +13,8 @@ class Music {
         this.playMusic = document.querySelector('#playMusic')!
         this.musicImg = document.querySelector('.musicIcon')!
         this.musicImg.addEventListener('click', this.setMusic.bind(this))
+
+        document.addEventListener(RECEIVE_INFO_EVENT_MUSIC, this.receiveInfoHandle.bind(this))
     }
 
     init() {
@@ -24,16 +26,23 @@ class Music {
         }, 200);
     }
 
+    receiveInfoHandle(e: any) {
+        this.setMusicCom(e.detail)
+    }
+
     setMusic() {
         this.isMusic = !this.isMusic
-        this.setMusicCom()
         this.archive()
+        const getInfoEvent = new CustomEvent(GETINFO_EVENT, {detail: "isStop"})
+        document.dispatchEvent(getInfoEvent)
     }
     
-    setMusicCom() {
+    setMusicCom(notPlay?:boolean) {
         if (this.isMusic) {
             this.musicImg.src = normalIcon
             this.musicImg.style.animationPlayState = 'running'
+            this.bgMusic.muted = false;
+            if (notPlay) return
             setTimeout(() => {
                 this.bgMusic.play()
             }, 200);
@@ -81,7 +90,7 @@ class Music {
     // 还原
     archiveRestore() {
         this.isMusic = localStorage.getItem(MUSICSTATE)! === 'true' ? true : false
-        this.setMusicCom()
+        this.setMusicCom(true)
     }
 
 }
