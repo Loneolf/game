@@ -1,0 +1,26 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+body {
+	font: bold 20px "Courier";
+	font-size: 14px;
+	overflow: hidden;
+}
+
+#main {
+	width: 375px;
+	height: 630px;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

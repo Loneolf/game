@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icon.png" type="image/png">
+    <title>打砖块</title>
+</head>
+<body>
+    <div id="main">
+        <div id="score-panel">
+            <div>
+                得分:<span id="score">0</span>
+            </div>
+            <div>
+                难度:<span id="level">1</span>
+            </div>
+            <div class="musicBox">
+                <img class="musicIcon" src="./assets/music.png" />
+            </div>
+        </div>
+        <div id="stage">
+           
+        </div>
+
+        <div id="oprate">
+            <div id="dirBox">
+                <div id="top">上</div>
+                <div id="right">右</div>
+                <div id="left">左</div>
+                <div id="bottom">下</div>
+            </div>
+            <div id="speedAgin">
+                <div id="agin">开始</div>
+                <div id="speed">加速</div>
+            </div>
+        </div>
+        <div id="audioBox">
+            <audio id="bgAudio" src="./mp3/bg.mp3" type="audio/mp3" loop autoplay muted></audio>
+            <audio id="playMusic" src="" type="audio/mp3"></audio>
+        </div>
+    </div>
+</body>
+</html>

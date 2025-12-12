@@ -1,0 +1,11 @@
+// 用于存档的变量，存在localStorage中
+export const SNAKEPOSITIONLS = 'SNAKEPOSITION'
+export const FOODPOSITIONLS = 'FOODPOSITION'
+export const CONTRLSTATE = 'CONTRLSTATE'
+export const SCORESTATE = 'SCORESTATE'
+export const MUSICSTATE = 'MUSICSTATE'
+
+
+// 自定义事件常量
+export const GETINFO_EVENT = 'GETINFOEVENT'
+export const RECEIVE_INFO_EVENT_MUSIC = "RECEIVEINFOEVENTMUSIC"
