@@ -1,0 +1,5 @@
+packages:
+  # 包含 packages 目录下的所有子目录（每个子目录都是一个子包）
+  - "packages/**"
+  # 不包括在 test 文件夹下的
+  - "!**/test/**"

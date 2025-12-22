@@ -1,3 +1,22 @@
 {
-    "git.ignoreLimitWarning": true
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/dist": true,
+		"**/build": true,
+		"**/.cache": true
+	},
+	"eslint.useFlatConfig": false,
+	"eslint.workingDirectories": [
+		{
+			"pattern": "packages/apps/*/"
+		}
+	],
+	// "eslint.run": "onSave",
+	"eslint.validate": ["javascript", "vue"],
+	"editor.formatOnSave": false,
+
+	// "editor.codeActionsOnSave": {
+	// 	// "source.fixAll.eslint": "explicit"
+	// },
 }

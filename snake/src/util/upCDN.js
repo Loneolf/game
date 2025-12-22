@@ -1,15 +1,13 @@
 const fs = require("fs");
 const path = require("path");
 const COS = require("cos-nodejs-sdk-v5");
-const { COSSECRET } = require("./myCofnig");
+const { COSSECRET, bucket, region } = require("./myCofnig");
 
 const cos = new COS({
 	SecretId: COSSECRET.id,
 	SecretKey: COSSECRET.key,
 });
 // 存储同名称
-const bucket = "qing-1258827329";
-const region = "ap-beijing";
 let cosDir = "snake/";
 upDir = "dist";
 
