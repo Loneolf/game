@@ -40,7 +40,6 @@ module.exports = () => {
 			new DefinePlugin({
 				ENV: JSON.stringify(process.env.NODE_ENV),
 				process: JSON.stringify(process.env),
-
 			}),
 		],
 		devServer: {
@@ -82,11 +81,9 @@ module.exports = () => {
 				{
 					test: /\.png$/, // 用正则匹配以png为结尾的资源
 					type: "asset/resource",
-					// asset/resource, 打包资源文件，输出对应文件
 					generator: {
 						filename: "images/[name]_[contenthash][ext]",
 					},
-					// 优先级高于output中的assetModuleFilename
 				},
 				{
 					test: /\.(css|scss)$/,
