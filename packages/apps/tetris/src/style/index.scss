@@ -1,0 +1,143 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+body {
+	font: bold 20px "Courier";
+	font-size: 14px;
+	overflow: hidden;
+	background-color: #1a1a2e;
+}
+
+#main {
+	width: 375px;
+	height: 630px;
+	background-color: #16213e;
+	border: 10px solid #0f3460;
+	margin: 20px auto;
+	border-radius: 40px;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: space-around;
+
+	#game-container {
+		width: 320px;
+		height: 420px;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+
+		#side-panel {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+
+			#next-label {
+				color: #e94560;
+				font-size: 14px;
+				font-weight: bold;
+			}
+
+			#next-piece {
+				border: 2px solid #e94560;
+				border-radius: 8px;
+				background-color: #000;
+			}
+		}
+
+		#board {
+			border: 2px solid #e94560;
+			border-radius: 8px;
+			background-color: #000;
+		}
+	}
+
+	#score-panel {
+		width: 320px;
+		display: flex;
+		justify-content: space-between;
+		font-size: 14px;
+		color: #e94560;
+
+		.musicIcon{
+			width: 18px;
+			height: 18px;
+			animation: rotate 8s infinite linear;
+		}
+	}
+
+	#oprate{
+		width: 320px;
+		height: 120px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 10px;
+
+		#dirBox{
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			gap: 10px;
+
+			div {
+				touch-action: none;
+				width: 60px;
+				height: 50px;
+				background-color: #e94560;
+				border-radius: 10px;
+				text-align: center;
+				color: #fff;
+				line-height: 50px;
+				font-size: 20px;
+				font-weight: bold;
+				cursor: pointer;
+				transition: all 0.1s ease;
+
+				&:active {
+					transform: scale(0.95);
+					background-color: #ff6b6b;
+				}
+			}
+		}
+
+		#speedAgin{
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+
+			div {
+				width: 80px;
+				height: 45px;
+				background-color: #0f3460;
+				border-radius: 10px;
+				text-align: center;
+				color: #e94560;
+				line-height: 45px;
+				font-size: 14px;
+				font-weight: bold;
+				cursor: pointer;
+				transition: all 0.1s ease;
+
+				&:active {
+					transform: scale(0.95);
+					background-color: #1a4a7a;
+				}
+			}
+		}
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
