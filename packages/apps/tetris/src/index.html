@@ -25,10 +25,20 @@
         </div>
         <div id="game-container">
             <div id="side-panel">
+                <div id="hold-label">暂存 (C)</div>
+                <canvas id="hold-piece" width="100" height="100"></canvas>
                 <div id="next-label">下一个</div>
                 <canvas id="next-piece" width="100" height="100"></canvas>
             </div>
             <canvas id="board" width="200" height="400"></canvas>
+        </div>
+        <div id="controls-info">
+            <div class="control-item">← → 移动</div>
+            <div class="control-item">↑ 旋转</div>
+            <div class="control-item">↓ 软降</div>
+            <div class="control-item">Shift 硬降</div>
+            <div class="control-item">C 暂存</div>
+            <div class="control-item">空格 暂停</div>
         </div>
         <div id="oprate">
             <div id="dirBox">

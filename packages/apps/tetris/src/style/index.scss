@@ -14,7 +14,7 @@ body {
 
 #main {
 	width: 375px;
-	height: 630px;
+	height: 680px;
 	background-color: #16213e;
 	border: 10px solid #0f3460;
 	margin: 20px auto;
@@ -37,12 +37,14 @@ body {
 			align-items: center;
 			gap: 10px;
 
+			#hold-label,
 			#next-label {
 				color: #e94560;
-				font-size: 14px;
+				font-size: 12px;
 				font-weight: bold;
 			}
 
+			#hold-piece,
 			#next-piece {
 				border: 2px solid #e94560;
 				border-radius: 8px;
@@ -68,6 +70,22 @@ body {
 			width: 18px;
 			height: 18px;
 			animation: rotate 8s infinite linear;
+		}
+	}
+
+	#controls-info {
+		width: 320px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		font-size: 11px;
+		color: #888;
+		gap: 5px;
+		
+		.control-item {
+			background-color: #0f3460;
+			padding: 4px 8px;
+			border-radius: 4px;
 		}
 	}
 
