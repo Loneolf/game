@@ -1,1 +1,51 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="assets/ico/icon.png" type="image/png"><title>俄罗斯方块</title><link href="style/app_b9f82eb7ceca9651.css" rel="stylesheet"></head><body><div id="main"><div id="score-panel"><div>得分:<span id="score">0</span></div><div>等级:<span id="level">1</span></div><div>消除:<span id="lines">0</span></div><div class="musicBox"><img class="musicIcon" src="./assets/music.png"></div></div><div id="game-container"><div id="next-piece"></div><div id="board"></div></div><div id="oprate"><div id="dirBox"><div id="left">←</div><div id="right">→</div><div id="down">↓</div><div id="rotate">↻</div></div><div id="speedAgin"><div id="agin">开始</div><div id="pause">暂停</div></div></div><div id="audioBox"><audio id="bgAudio" src="./mp3/bg.mp3" type="audio/mp3" loop autoplay muted></audio><audio id="playMusic" src="" type="audio/mp3"></audio></div></div><script defer="defer" src="app_bounder_7c55ff86a5.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/ico/icon.png" type="image/png">
+    <title>俄罗斯方块</title>
+</head>
+<body>
+    <div id="main">
+        <div id="score-panel">
+            <div>
+                得分:<span id="score">0</span>
+            </div>
+            <div>
+                等级:<span id="level">1</span>
+            </div>
+            <div>
+                消除:<span id="lines">0</span>
+            </div>
+            <div class="musicBox">
+                <img class="musicIcon" src="./assets/music.png" />
+            </div>
+        </div>
+        <div id="game-container">
+            <div id="side-panel">
+                <div id="next-label">下一个</div>
+                <canvas id="next-piece" width="100" height="100"></canvas>
+            </div>
+            <canvas id="board" width="200" height="400"></canvas>
+        </div>
+        <div id="oprate">
+            <div id="dirBox">
+                <div id="left">←</div>
+                <div id="right">→</div>
+                <div id="down">↓</div>
+                <div id="rotate">↻</div>
+            </div>
+            <div id="speedAgin">
+                <div id="agin">开始</div>
+                <div id="pause">暂停</div>
+            </div>
+        </div>
+        <div id="audioBox">
+            <audio id="bgAudio" src="./mp3/bg.mp3" type="audio/mp3" loop autoplay muted></audio>
+            <audio id="playMusic" src="" type="audio/mp3"></audio>
+        </div>
+    </div>
+<script defer src="app_bounder.js"></script></body>
+</html>

@@ -1,23 +1,25 @@
+import { pxToRem as _pxToRem, remToPx as _remToPx, realSize as _realSize, getRealRem as _getRealRem } from "../../../../utils";
+
 // 获取全局的根元素字体大小
 // 默认跟元素的fontSize为100
-const defaultFS = 100 
+const defaultFS = 100;
 
 // 相对于根元素100px，px转化为rem
 export const pxToRem = function (px: number) {
-    return px / defaultFS
-}
+	return _pxToRem(px);
+};
 
 // 根元素100px情况下，rem转化为px
 export const remTopx = function (rem: number) {
-    return rem * defaultFS
-}
+	return _remToPx(rem);
+};
 
 // 获取相对于根元素100的尺寸
 export const realSize = function (originSize: number) {
-    return originSize / (window.gfontSize / defaultFS)
-}
+	return _realSize(originSize);
+};
 
 // 将获取到的方块位置转化为rem
 export const getRealrem = function (px: number) {
-    return Math.round((px / window.gfontSize) * 10) / 10
-}
+	return _getRealRem(px);
+};

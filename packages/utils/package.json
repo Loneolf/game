@@ -1,0 +1,13 @@
+{
+  "name": "@game/utils",
+  "version": "1.0.0",
+  "description": "游戏通用工具函数",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
