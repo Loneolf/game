@@ -1,32 +1,27 @@
-const { merge } = require("webpack-merge");
-const { createCommonConfig } = require("./common");
-const { createDevConfig } = require("./dev");
-const { createProdConfig } = require("./prod");
+const rspack = require('@rspack/core');
+const { merge } = require('webpack-merge');
 
-/**
- * 创建Rspack配置
- * @param {string} projectRoot - 项目根目录绝对路径
- * @param {Object} options - 配置选项
- * @param {string} options.entry - 入口文件路径
- * @param {number} options.port - 开发服务器端口
- * @param {string} options.template - HTML模板路径
- * @param {Array<{from: string, to: string}>} options.copyPatterns - 需要复制的文件模式
- * @returns {Object} 合并后的Rspack配置
- */
-function createConfig(projectRoot, options = {}) {
-	const env = process.env.NODE_ENV || "development";
-	const commonConfig = createCommonConfig(projectRoot, options);
+const common = require('./rspack.config.common');
+const components = require('./rspack.config.components');
+const development = require('./rspack.config.dev');
+const production = require('./rspack.config.prod');
 
-	switch (env) {
-		case "development":
-			const devConfig = createDevConfig(projectRoot, options);
-			return merge(commonConfig, devConfig);
-		case "production":
-			const prodConfig = createProdConfig(projectRoot, options);
-			return merge(commonConfig, prodConfig);
-		default:
-			throw new Error(`No matching configuration found for environment: ${env}`);
-	}
+function filterHtmlRspackPlugin(config) {
+	if (!config.plugins) return config;
+	config.plugins = config.plugins.filter(plugin => {
+		return !(plugin instanceof rspack.HtmlRspackPlugin);
+	});
+	return config;
 }
 
-module.exports = { createConfig, createCommonConfig, createDevConfig, createProdConfig };
+module.exports = {
+	common,
+	development,
+	production,
+	components,
+	filterHtmlRspackPlugin,
+
+	'rspack.config.dev': merge(common, development),
+	'rspack.config.prod': merge(common, production),
+	'rspack.config.components': merge(common, components),
+};

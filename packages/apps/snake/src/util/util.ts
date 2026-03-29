@@ -1,4 +1,4 @@
-import { pxToRem as _pxToRem, remToPx as _remToPx, realSize as _realSize, getRealRem as _getRealRem } from "../../../../utils";
+import { pxToRem as _pxToRem, remToPx as _remToPx, realSize as _realSize, getRealRem as _getRealRem } from '../../../../utils';
 
 // 获取全局的根元素字体大小
 // 默认跟元素的fontSize为100

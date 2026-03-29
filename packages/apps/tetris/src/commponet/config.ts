@@ -4,19 +4,19 @@
  */
 
 /** 分数本地存储键名 */
-export const TETRISSCORE = 'TETRISSCORE'
+export const TETRISSCORE = 'TETRISSCORE';
 
 /** 等级本地存储键名 */
-export const TETRISLEVEL = 'TETRISLEVEL'
+export const TETRISLEVEL = 'TETRISLEVEL';
 
 /** 消除行数本地存储键名 */
-export const TETRISLINES = 'TETRISLINES'
+export const TETRISLINES = 'TETRISLINES';
 
 /** 游戏状态本地存储键名 */
-export const TETRISSTATE = 'TETRISSTATE'
+export const TETRISSTATE = 'TETRISSTATE';
 
 /** 获取信息自定义事件名称 */
-export const GETINFO_EVENT = 'GETINFOEVENT'
+export const GETINFO_EVENT = 'GETINFOEVENT';
 
 /** 接收音乐信息自定义事件名称 */
-export const RECEIVE_INFO_EVENT_MUSIC = "RECEIVEINFOEVENTMUSIC"
+export const RECEIVE_INFO_EVENT_MUSIC = 'RECEIVEINFOEVENTMUSIC';
