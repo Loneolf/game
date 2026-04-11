@@ -1,21 +1,22 @@
 {
-  "name": "tetris_ts",
+  "name": "tetris",
   "version": "1.0.0",
   "description": "俄罗斯方块游戏",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run serve",
-    "start": "npm run serve",
-    "serve": "cross-env NODE_ENV=development rspack serve",
-    "serveOpen": "cross-env NODE_ENV=development rspack serve --open",
-    "test-build": "cross-env NODE_ENV=development rspack build && npm run testUpload",
-    "build": "cross-env NODE_ENV=production rspack build && npm run upLoad",
+    "dev": "pnpm serve",
+    "start": "pnpm serve",
+    "serve": "cross-env NODE_ENV=development rspack serve --config ./rspack.config.js",
+    "test-build": "cross-env NODE_ENV=development rspack build --config ./rspack.config.js && pnpm testUpload",
+    "build": "cross-env NODE_ENV=production rspack build --config ./rspack.config.js && pnpm upLoad",
     "testUpload": "cross-env NODE_ENV=test node ./src/util/upCDN.js",
     "upLoad": "node ./src/util/upCDN.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {
+
+  }
 }

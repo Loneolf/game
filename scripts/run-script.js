@@ -47,7 +47,6 @@ function scanProjects() {
 					const newRelativePath = relativePath ? `${relativePath}/${item}` : item;
 					recursiveScan(itemPath, newRelativePath);
 				}
-				
 			}
 		}
 	}
@@ -57,6 +56,8 @@ function scanProjects() {
 }
 
 const projectPaths = scanProjects();
+
+console.log(projectPaths);
 
 if (!projectName) {
 	if (projectPaths.length === 0) {
