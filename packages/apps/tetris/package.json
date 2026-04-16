@@ -1,5 +1,5 @@
 {
-  "name": "tetris",
+  "name": "@qgame/tetris",
   "version": "1.0.0",
   "description": "俄罗斯方块游戏",
   "main": "index.js",
@@ -17,6 +17,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-
+    "@qgame/config": "workspace:*"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@game/config",
+  "name": "@qgame/config",
   "version": "1.0.0",
   "description": "公共打包配置文件",
   "main": "index.js",

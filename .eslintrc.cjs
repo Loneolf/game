@@ -26,7 +26,7 @@ module.exports = {
 	],
 	rules: {
 		indent: ['error', 'tab', { SwitchCase: 1 }],
-		quotes: ['warn', 'single'],
+		quotes: ['warn', 'double'],
 		semi: ['error', 'always'],
 		'no-unused-vars': 'off',
 		'@typescript-eslint/no-unused-vars': 'off',
