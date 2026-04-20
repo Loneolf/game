@@ -1,12 +1,5 @@
-/**
- * 存档抽象类
- * 蛇类、音乐类、分数类、控制类都需要实现存档功能
- */
-export declare abstract class ArchiveClass {
-	abstract archive(): void;
-	abstract clearArchive(): void;
-	abstract archiveRestore(): void;
-}
+export * from "./archive/index.d";
+
 
 /**
  * 默认根元素字体大小
@@ -78,13 +71,3 @@ export declare function debounce<T extends (...args: any[]) => void>(
  * @returns 拷贝后的对象
  */
 export declare function deepClone<T>(obj: T): T;
-
-/**
- * 本地存储封装
- */
-export declare const storage: {
-	set(key: string, value: any): void;
-	get<T = any>(key: string, defaultValue?: T): T;
-	remove(key: string): void;
-	clear(): void;
-};

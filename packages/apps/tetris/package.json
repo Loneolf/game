@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@qgame/config": "workspace:*"
+    "@qgame/config": "workspace:*",
+    "@qgame/utils": "workspace:*"
   }
 }
