@@ -1,6 +1,6 @@
-import { MUSICSTATE, GETINFO_EVENT, RECEIVE_INFO_EVENT_MUSIC} from './config';
-const normalIcon = require('../assets/music.png');
-const stopIcon = require('../assets/stopMusic.png');
+import { MUSICSTATE, GETINFO_EVENT, RECEIVE_INFO_EVENT_MUSIC} from "./config";
+const normalIcon = require("../assets/music.png");
+const stopIcon = require("../assets/stopMusic.png");
 
 class Music {
 	bgMusic: HTMLAudioElement;
@@ -9,10 +9,10 @@ class Music {
 	isMusic: boolean = true;
 
 	constructor() {
-		this.bgMusic = document.querySelector('#bgAudio')!;
-		this.playMusic = document.querySelector('#playMusic')!;
-		this.musicImg = document.querySelector('.musicIcon')!;
-		this.musicImg.addEventListener('click', this.setMusic.bind(this));
+		this.bgMusic = document.querySelector("#bgAudio")!;
+		this.playMusic = document.querySelector("#playMusic")!;
+		this.musicImg = document.querySelector(".musicIcon")!;
+		this.musicImg.addEventListener("click", this.setMusic.bind(this));
 
 		document.addEventListener(RECEIVE_INFO_EVENT_MUSIC, this.receiveInfoHandle.bind(this));
 	}
@@ -33,14 +33,14 @@ class Music {
 	setMusic() {
 		this.isMusic = !this.isMusic;
 		this.archive();
-		const getInfoEvent = new CustomEvent(GETINFO_EVENT, {detail: 'isStop'});
+		const getInfoEvent = new CustomEvent(GETINFO_EVENT, {detail: "isStop"});
 		document.dispatchEvent(getInfoEvent);
 	}
     
 	setMusicCom(notPlay?:boolean) {
 		if (this.isMusic) {
 			this.musicImg.src = normalIcon;
-			this.musicImg.style.animationPlayState = 'running';
+			this.musicImg.style.animationPlayState = "running";
 			this.bgMusic.muted = false;
 			if (notPlay) return;
 			setTimeout(() => {
@@ -49,20 +49,20 @@ class Music {
 		} else {
 			this.bgMusic.pause();
 			this.musicImg.src = stopIcon;
-			this.musicImg.style.animationPlayState = 'paused';
+			this.musicImg.style.animationPlayState = "paused";
 		}
 	}
 
 	eatMusic() {
-		this.play('./mp3/eat.mp3');
+		this.play("./mp3/eat.mp3");
 	}
 
 	over() {
 		if (!this.isMusic) return;
 		this.bgMusic.pause();
-		this.play('./mp3/hint.mp3');
+		this.play("./mp3/hint.mp3");
 		setTimeout(() => {
-			this.play('./mp3/over.mp3');
+			this.play("./mp3/over.mp3");
 		}, 500);
 	}
 
@@ -89,7 +89,7 @@ class Music {
 	}
 	// 还原
 	archiveRestore() {
-		this.isMusic = localStorage.getItem(MUSICSTATE)! === 'true' ? true : false;
+		this.isMusic = localStorage.getItem(MUSICSTATE)! === "true" ? true : false;
 		this.setMusicCom(true);
 	}
 

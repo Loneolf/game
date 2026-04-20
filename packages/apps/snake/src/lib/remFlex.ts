@@ -9,12 +9,12 @@ const metaHTML = `<meta name="viewport" content="width=device-width, initial-sca
   <meta name="screen-orientation" content="portrait">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">`;
-document.getElementsByTagName('head')[0].insertAdjacentHTML('beforeend', metaHTML);
+document.getElementsByTagName("head")[0].insertAdjacentHTML("beforeend", metaHTML);
 // --------------------------------------------------
 // 响应式自适应
 (function (doc, win) {
 	const docEl = doc.documentElement;
-	const resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+	const resizeEvt = "orientationchange" in window ? "orientationchange" : "resize";
 	const recalc = function () {
 		let clientWidth = docEl.clientWidth;
 		if (!clientWidth) {
@@ -27,7 +27,7 @@ document.getElementsByTagName('head')[0].insertAdjacentHTML('beforeend', metaHTM
 			clientWidth = 260;
 		}
 		const fs = Math.ceil(100 * (clientWidth / 375));
-		docEl.style.fontSize = fs + 'px';
+		docEl.style.fontSize = fs + "px";
 		window.gfontSize = fs;
 	};
 	if (!doc.addEventListener) {
@@ -35,7 +35,7 @@ document.getElementsByTagName('head')[0].insertAdjacentHTML('beforeend', metaHTM
 	}
 	recalc();
 	win.addEventListener(resizeEvt, recalc, false);
-	doc.addEventListener('DOMContentLoaded', recalc, false);
+	doc.addEventListener("DOMContentLoaded", recalc, false);
 })(document, window);
 
 exports = {};

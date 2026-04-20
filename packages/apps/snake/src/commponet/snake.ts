@@ -1,6 +1,6 @@
-import ArchiveClass from '@u/archiveClass';
-import * as util from '@u/util';
-import { SNAKEPOSITIONLS } from './config';
+import ArchiveClass from "@u/archiveClass";
+import * as util from "@u/util";
+import { SNAKEPOSITIONLS } from "./config";
 
 export interface IPositionA {
     x: number;
@@ -13,7 +13,7 @@ class Snake implements ArchiveClass {
 	snakeAPositin: IPositionA[];
 	oldPostion: IPositionA[];
 	constructor() {
-		this.snakeA = Array.from(document.querySelectorAll('#snake div')!);
+		this.snakeA = Array.from(document.querySelectorAll("#snake div")!);
 		this.headEl = this.snakeA[0];
 		this.snakeAPositin = [{ x: this.X, y: this.Y }];
 		this.oldPostion = [];
@@ -29,21 +29,21 @@ class Snake implements ArchiveClass {
 	set X(x: number) {
 		if (x === this.X) return;
 		if (x >= 3 || x < 0) {
-			throw new Error('撞墙了，按空格键或者开始按钮重新开始');
+			throw new Error("撞墙了，按空格键或者开始按钮重新开始");
 		}
 		this.moveBody();
 		this.isHitSelf(x, this.Y);
-		this.headEl.style.left = x + 'rem';
+		this.headEl.style.left = x + "rem";
 	}
 
 	set Y(y: number) {
 		if (y === this.Y) return;
 		if (y >= 3 || y < 0) {
-			throw new Error('撞墙了，按空格键或者开始按钮重新开始');
+			throw new Error("撞墙了，按空格键或者开始按钮重新开始");
 		}
 		this.moveBody();
 		this.isHitSelf(this.X, y);
-		this.headEl.style.top = y + 'rem';
+		this.headEl.style.top = y + "rem";
 	}
 
 	// 用户点击暂停进行游行存档，当用户重新打开，先读取存档，没有存档再游戏初始化
@@ -72,13 +72,13 @@ class Snake implements ArchiveClass {
 	}
 
 	addBody(position?: IPositionA) {
-		const div = document.createElement('div');
+		const div = document.createElement("div");
 		if (position) {
 			div.style.left = `${position.x}rem`;
 			div.style.top = `${position.y}rem`;
 		}
 		this.snakeA.push(div);
-        document.querySelector('#snake')!.appendChild(div);
+        document.querySelector("#snake")!.appendChild(div);
 	}
 
 	// 移动身体
@@ -103,8 +103,8 @@ class Snake implements ArchiveClass {
 	init() {
 		this.snakeA.forEach((item, index) => {
 			if (index === 0) {
-				this.headEl.style.left = '0rem';
-				this.headEl.style.top = '0rem';
+				this.headEl.style.left = "0rem";
+				this.headEl.style.top = "0rem";
 			} else {
 				if (index !== 0) item.remove();
 			}
@@ -118,7 +118,7 @@ class Snake implements ArchiveClass {
 		this.snakeAPositin.forEach((item) => {
 			if (x === item.x && y === item.y) {
 				this.backOne();
-				throw new Error('撞到了自己');
+				throw new Error("撞到了自己");
 			}
 		});
 	}

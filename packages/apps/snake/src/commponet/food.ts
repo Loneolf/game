@@ -1,14 +1,14 @@
-import ArchiveClass from '@u/archiveClass';
-import * as util from '@u/util';
-import { FOODPOSITIONLS } from './config';
-import { IPositionA } from './snake';
+import ArchiveClass from "@u/archiveClass";
+import * as util from "@u/util";
+import { FOODPOSITIONLS } from "./config";
+import { IPositionA } from "./snake";
 
 class Food implements ArchiveClass {
 
 	foodEl: HTMLDivElement;
 
 	constructor() {
-		this.foodEl = document.querySelector('#food')!;
+		this.foodEl = document.querySelector("#food")!;
 		this.change();
 	}
 
@@ -21,11 +21,11 @@ class Food implements ArchiveClass {
 	}
 
 	set X(x: number) {
-		this.foodEl.style.left = x + 'rem';
+		this.foodEl.style.left = x + "rem";
 	}
 
 	set Y(y: number){
-		this.foodEl.style.top = y + 'rem';
+		this.foodEl.style.top = y + "rem";
 	}
 
 	// 食物不能更改在蛇身上，需要传递过来蛇的坐标，不传的话默认不在蛇的初始位置
