@@ -37,5 +37,3 @@ document.getElementsByTagName("head")[0].insertAdjacentHTML("beforeend", metaHTM
 	win.addEventListener(resizeEvt, recalc, false);
 	doc.addEventListener("DOMContentLoaded", recalc, false);
 })(document, window);
-
-exports = {};

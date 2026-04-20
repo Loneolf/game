@@ -1,12 +1,12 @@
 module.exports = {
 	plugins: {
 		autoprefixer: {},
-		"postcss-px-to-viewport": {
-			viewportWidth: 375,
-			viewportUnit: "vw",
-			fontViewportUnit: "vw",
-			unitPrecision: 5,
+		"postcss-pxtorem": {
+			rootValue: 100,
 			propList: ["*"],
+			mediaQuery: true,
+			// 排除特定选择器
+			selectorBlackList: ["noRem"],
 			exclude: [/node_modules/],
 		},
 	},
