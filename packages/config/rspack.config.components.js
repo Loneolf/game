@@ -1,25 +1,25 @@
-const path = require('path');
+const path = require("path");
 
-const rspack = require('@rspack/core');
+const rspack = require("@rspack/core");
 
 module.exports = {
 	output: {
-		path: path.resolve(process.cwd(), './dist'),
+		path: path.resolve(process.cwd(), "./dist"),
 		clean: true,
-		filename: 'components/[name].js',
-		chunkFilename: 'components/[name].chunk.js',
-		assetModuleFilename: 'components/[name][ext]',
+		filename: "components/[name].js",
+		chunkFilename: "components/[name].chunk.js",
+		assetModuleFilename: "components/[name][ext]",
 		library: {
-			type: 'umd',
-			name: 'GameComponents',
+			type: "umd",
+			name: "GameComponents",
 		},
-		globalObject: 'typeof self !== \'undefined\' ? self : this',
+		globalObject: "typeof self !== \"undefined\" ? self : this",
 	},
-	mode: 'production',
-	devtool: 'source-map',
+	mode: "production",
+	devtool: "source-map",
 	plugins: [
 		new rspack.CssExtractRspackPlugin({
-			filename: 'components/[name].css',
+			filename: "components/[name].css",
 		}),
 	],
 	module: {
@@ -28,18 +28,18 @@ module.exports = {
 				test: /\.(css|scss|sass)$/,
 				use: [
 					rspack.CssExtractRspackPlugin.loader,
-					'css-loader',
-					'postcss-loader',
+					"css-loader",
+					"postcss-loader",
 					{
-						loader: 'sass-loader',
+						loader: "sass-loader",
 						options: {
 							sassOptions: {
-								silenceDeprecations: ['import'],
+								silenceDeprecations: ["import"],
 							},
 						}
 					}
 				],
-				type: 'javascript/auto',
+				type: "javascript/auto",
 			},
 		]
 	},

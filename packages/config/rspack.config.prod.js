@@ -1,27 +1,27 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const rspack = require('@rspack/core');
+const rspack = require("@rspack/core");
 
 module.exports = {
 	output: {
-		path: path.resolve(process.cwd(), './dist'),
+		path: path.resolve(process.cwd(), "./dist"),
 		clean: {
-			keep: 'components',
+			keep: "components",
 		},
-		filename: 'js/[name].js',
-		chunkFilename: 'js/[name].chunk.js',
-		assetModuleFilename: 'asset/[name][ext]',
+		filename: "js/[name].js",
+		chunkFilename: "js/[name].chunk.js",
+		assetModuleFilename: "asset/[name][ext]",
 	},
-	mode: 'production',
-	devtool: 'source-map',
+	mode: "production",
+	devtool: "source-map",
 	plugins: [
 		new rspack.HtmlRspackPlugin({
-			template: path.resolve(process.cwd(), './src/index.html'),
-			inject: 'body',
+			template: path.resolve(process.cwd(), "./src/index.html"),
+			inject: "body",
 		}),
 		new rspack.CssExtractRspackPlugin({
-			filename: 'style/[name].css',
+			filename: "style/[name].css",
 		}),
 	],
 	module: {
@@ -30,18 +30,18 @@ module.exports = {
 				test: /\.(css|scss|sass)$/,
 				use: [
 					rspack.CssExtractRspackPlugin.loader,
-					'css-loader',
-					'postcss-loader',
+					"css-loader",
+					"postcss-loader",
 					{
-						loader: 'sass-loader',
+						loader: "sass-loader",
 						options: {
 							sassOptions: {
-								silenceDeprecations: ['import'],
+								silenceDeprecations: ["import"],
 							},
 						}
 					}
 				],
-				type: 'javascript/auto',
+				type: "javascript/auto",
 			},
 		]
 	},
@@ -59,11 +59,11 @@ module.exports = {
 			}),
 		],
 		splitChunks: {
-			chunks: 'all',
+			chunks: "all",
 			cacheGroups: {
 				libs: {
 					test: /[\\/]node_modules[\\/]/,
-					name: 'vendors-chunk',
+					name: "vendors-chunk",
 					priority: 20,
 				},
 			},
@@ -72,7 +72,7 @@ module.exports = {
 			name: (entrypoint) => `runtime~${entrypoint.name}`,
 		},
 		removeEmptyChunks: false,
-		chunkIds: 'named',
+		chunkIds: "named",
 		usedExports: true,
 	},
 };

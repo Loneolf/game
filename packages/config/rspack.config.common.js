@@ -1,10 +1,10 @@
-const path = require('path');
+const path = require("path");
 
-const { DefinePlugin } = require('@rspack/core');
+const { DefinePlugin } = require("@rspack/core");
 
 module.exports = {
 	entry: {
-		app: './src/app.ts',
+		app: "./src/app.ts",
 	},
 	output: {
 		environment: {
@@ -16,14 +16,14 @@ module.exports = {
 	},
 	plugins: [
 		new DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+			"process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || "development"),
 		}),
 	],
 	module: {
 		rules: [
 			{
 				test: /\.(jp?eg|png|svg|webp|gif)$/,
-				type: 'asset',
+				type: "asset",
 				parser: {
 					dataUrlCondition: {
 						maxSize: 10 * 1024,
@@ -32,41 +32,41 @@ module.exports = {
 			},
 			{
 				test: /\.(woff|woff2|ttf|otf|eot|txt)$/,
-				type: 'asset/resource',
+				type: "asset/resource",
 			},
 			{
 				test: /\.(js|mjs|cjs|ts)$/,
 				exclude: /node_modules[\\/]core-js/,
 				use: {
-					loader: 'builtin:swc-loader',
+					loader: "builtin:swc-loader",
 					options: {
 						env: {
-							mode: 'usage',
-							coreJs: '3.26.1',
+							mode: "usage",
+							coreJs: "3.26.1",
 							targets: [
-								'Android >= 6',
-								'iOS >= 9',
-								'not dead',
+								"Android >= 6",
+								"iOS >= 9",
+								"not dead",
 							],
 						},
 						jsc: {
 							parser: {
-								syntax: 'typescript',
+								syntax: "typescript",
 							},
 						},
-						isModule: 'unknown',
+						isModule: "unknown",
 					},
 				},
 			},
 		],
 	},
 	resolve: {
-		extensions: ['.js', '.ts', '.json'],
+		extensions: [".js", ".ts", ".json"],
 		alias: {
-			'@': path.resolve(process.cwd(), './src'),
-			'@u': path.resolve(process.cwd(), './src/util'),
-			'@sa': path.resolve(process.cwd(), './src/assets'),
-			'@c': path.resolve(process.cwd(), './src/commponet'),
+			"@": path.resolve(process.cwd(), "./src"),
+			"@u": path.resolve(process.cwd(), "./src/util"),
+			"@sa": path.resolve(process.cwd(), "./src/assets"),
+			"@c": path.resolve(process.cwd(), "./src/commponet"),
 		},
 	},
 };
