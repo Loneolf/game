@@ -4,7 +4,7 @@ import VConsole from "vconsole";
 import Contrl from "./commponet/contrl";
 new Contrl();
 
-if (ENV === "development") {
+if (process.env.NODE_ENV === "development") {
 	new VConsole();
 }
 

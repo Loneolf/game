@@ -1,10 +1,19 @@
-const { merge } = require("webpack-merge");
-const { common, development, production } = require("../../config");
+import qConfig from "@qgame/config";
+import { merge } from "webpack-merge";
+
+const { common, development, production } = qConfig;
+
 
 const env = process.env.NODE_ENV || "development";
 
+let config;
+
+console.log('snake env:', env);
+
 if (env === "development") {
-	module.exports = merge(common, development);
+	config = merge(common, development);
 } else {
-	module.exports = merge(common, production);
+	config = merge(common, production);
 }
+
+export default config;

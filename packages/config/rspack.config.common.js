@@ -1,8 +1,8 @@
-const path = require("path");
+import path from "path";
 
-const { DefinePlugin } = require("@rspack/core");
+import { DefinePlugin } from "@rspack/core";
 
-module.exports = {
+export default {
 	entry: {
 		app: "./src/app.ts",
 	},

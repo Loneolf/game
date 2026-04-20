@@ -1,11 +1,10 @@
-const fs = require("fs");
-const path = require("path");
+import path from "path";
 
-const rspack = require("@rspack/core");
-const ESLintPlugin = require("eslint-webpack-plugin");
+import rspack from "@rspack/core";
+import ESLintPlugin from "eslint-webpack-plugin";
 
 
-module.exports = {
+export default {
 	output: {
 		path: undefined,
 		filename: "js/[name].js",
@@ -57,7 +56,7 @@ module.exports = {
 		hot: true,
 		historyApiFallback: true,
 		static: {
-			directory: path.resolve(__dirname, "../../public"),
+			// directory: path.resolve(__dirname, "../../public"),
 			publicPath: "/",
 		},
 	},

@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "公共打包配置文件",
   "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.js"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,10 +1,10 @@
-const rspack = require("@rspack/core");
-const { merge } = require("webpack-merge");
+import rspack from "@rspack/core";
+import { merge } from "webpack-merge";
 
-const common = require("./rspack.config.common");
-const components = require("./rspack.config.components");
-const development = require("./rspack.config.dev");
-const production = require("./rspack.config.prod");
+import common from "./rspack.config.common.js";
+import components from "./rspack.config.components.js";
+import development from "./rspack.config.dev.js";
+import production from "./rspack.config.prod.js";
 
 function filterHtmlRspackPlugin(config) {
 	if (!config.plugins) return config;
@@ -14,7 +14,7 @@ function filterHtmlRspackPlugin(config) {
 	return config;
 }
 
-module.exports = {
+export default {
 	common,
 	development,
 	production,

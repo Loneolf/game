@@ -1,14 +1,14 @@
+
+// 扩展 Window 接口以支持 gfontSize 属性
+declare global {
+	interface Window {
+		gfontSize?: number;
+	}
+}
 /**
  * 默认根元素字体大小
  */
 export const DEFAULT_FONT_SIZE: number = 100;
-
-// 扩展 Window 接口以支持 gfontSize 属性
-declare global {
-  interface Window {
-    gfontSize?: number;
-  }
-}
 
 /**
  * 相对于根元素100px，将px转化为rem

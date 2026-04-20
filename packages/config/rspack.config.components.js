@@ -1,8 +1,9 @@
-const path = require("path");
+import path from "path";
 
-const rspack = require("@rspack/core");
+import rspack from "@rspack/core";
 
-module.exports = {
+
+export default {
 	output: {
 		path: path.resolve(process.cwd(), "./dist"),
 		clean: true,
