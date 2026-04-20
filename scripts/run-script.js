@@ -3,7 +3,7 @@ import { spawn } from "child_process"; // 用于创建子进程执行命令
 import fs from "fs"; // 文件系统操作
 import path from "path"; // 路径处理
 import readline from "readline"; // 命令行交互（用于用户输入）
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

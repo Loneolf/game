@@ -1,5 +1,5 @@
+import { getRealRem } from "@qgame/utils";
 import ArchiveClass from "@u/archiveClass";
-import * as util from "@u/util";
 import { SNAKEPOSITIONLS } from "./config";
 
 export interface IPositionA {
@@ -20,10 +20,10 @@ class Snake implements ArchiveClass {
 	}
 
 	get X() {
-		return util.getRealrem(this.headEl.offsetLeft);
+		return getRealRem(this.headEl.offsetLeft);
 	}
 	get Y() {
-		return util.getRealrem(this.headEl.offsetTop);
+		return getRealRem(this.headEl.offsetTop);
 	}
 
 	set X(x: number) {
@@ -86,10 +86,10 @@ class Snake implements ArchiveClass {
 		const temPostion = [] as IPositionA[];
 		const temOldPostion = [{x: 0, y: 0}] as IPositionA[];
 		for (let i = this.snakeA.length - 1; i > 0; i--) {
-			const oldx = util.getRealrem(this.snakeA[i].offsetLeft);
-			const oldy = util.getRealrem(this.snakeA[i].offsetTop);
-			const x = util.getRealrem(this.snakeA[i - 1].offsetLeft);
-			const y = util.getRealrem(this.snakeA[i - 1].offsetTop);
+			const oldx = getRealRem(this.snakeA[i].offsetLeft);
+			const oldy = getRealRem(this.snakeA[i].offsetTop);
+			const x = getRealRem(this.snakeA[i - 1].offsetLeft);
+			const y = getRealRem(this.snakeA[i - 1].offsetTop);
 			this.snakeA[i].style.left = `${x}rem`;
 			this.snakeA[i].style.top = `${y}rem`;
 			temOldPostion.push({x: oldx, y: oldy});

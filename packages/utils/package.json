@@ -2,8 +2,8 @@
   "name": "@qgame/utils",
   "version": "1.0.0",
   "description": "游戏通用工具函数",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "udist/index.js",
+  "types": "udist/index.d.ts",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

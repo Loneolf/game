@@ -2,7 +2,7 @@
 // 扩展 Window 接口以支持 gfontSize 属性
 declare global {
 	interface Window {
-		gfontSize?: number;
+		gfontSize: number;
 	}
 }
 /**

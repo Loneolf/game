@@ -1,17 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
-    "module": "es6",
-    "lib": ["ES2018", "DOM"],
+    "target": "ESNext",
+    "module": "NodeNext",
+    "lib": ["ESNext", "DOM"],
     "declaration": true, // 生成声明文件 (.d.ts)
     "declarationMap": false, // 是否为声明文件生成源映射
     "sourceMap": false, // 是否为源文件生成映射文件映射
     "outDir": "./udist",
     "rootDir": ".",
     "strict": true,
-    "esModuleInterop": true, // 启用 ES 模块互操作性
     "skipLibCheck": true, // 跳过库文件的类型检查
-    "forceConsistentCasingInFileNames": true // 强制文件名大小写一致性
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致性
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "udist"]

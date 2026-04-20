@@ -1,7 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const COS = require("cos-nodejs-sdk-v5");
-const { COSSECRET, bucket, region } = require("./myCofnig");
+import fs from "fs";
+import path from "path";
+import COS from "cos-nodejs-sdk-v5";
+import { COSSECRET, bucket, region } from "./myCofnig.js";
 
 const cos = new COS({
 	SecretId: COSSECRET.id,
@@ -9,10 +9,10 @@ const cos = new COS({
 });
 // 存储同名称
 let cosDir = "snake/";
-upDir = "dist";
+let upDir = "dist";
 
-if (process.env?.NODE_ENV === 'test') {
-	cosDir = 'testSnake/'
+if (process.env?.NODE_ENV === "test") {
+	cosDir = "testSnake/";
 }
 
 let arr = [];

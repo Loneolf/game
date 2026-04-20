@@ -1,6 +1,7 @@
+import normalIcon from "../assets/music.png";
+import stopIcon from "../assets/stopMusic.png";
 import { MUSICSTATE, GETINFO_EVENT, RECEIVE_INFO_EVENT_MUSIC} from "./config";
-const normalIcon = require("../assets/music.png");
-const stopIcon = require("../assets/stopMusic.png");
+
 
 class Music {
 	bgMusic: HTMLAudioElement;

@@ -1,5 +1,5 @@
+import { getRealRem } from "@qgame/utils";
 import ArchiveClass from "@u/archiveClass";
-import * as util from "@u/util";
 import { FOODPOSITIONLS } from "./config";
 import { IPositionA } from "./snake";
 
@@ -13,11 +13,11 @@ class Food implements ArchiveClass {
 	}
 
 	get X(): number {
-		return util.getRealrem(this.foodEl.offsetLeft);
+		return getRealRem(this.foodEl.offsetLeft);
 	}
 
 	get Y(): number {
-		return util.getRealrem(this.foodEl.offsetTop);
+		return getRealRem(this.foodEl.offsetTop);
 	}
 
 	set X(x: number) {
